@@ -1,13 +1,13 @@
 # h-box
 A UPnP proxy that publishes the local UPnP devices to remote home networks
 
-## PURPOSE:
+### PURPOSE:
 
 All the current upnp devices including Control Points, Media Server, Media Rendrrer, etc. run only in the local network. This Software allows us to run upnp devices that are in the remote network and/or are behind NAT.
 
 This Software uses xmpp protocol to send and receivce control message like executing some actions on the remote upnp device. It uses TCP over HIP to send and receive media files.
 
-## SAMPLE STEPS:
+### SAMPLE STEPS:
 
 First of all we need a xmpp server and id. We used gmail as xmpp server in this case. The xmpp id along with the password has to added in the conf/example.conf file of the software directory in the following format. 
 ```
