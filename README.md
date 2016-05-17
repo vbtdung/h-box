@@ -7,7 +7,11 @@ All the current upnp devices including Control Points, Media Server, Media Rendr
 
 This Software uses xmpp protocol to send and receivce control message like executing some actions on the remote upnp device. It uses TCP over HIP to send and receive media files.
 
-### SAMPLE STEPS:
+### INSTALLATION:
+
+Check the ```INSTALL``` file.
+
+### SAMPLE CONFIGURATION:
 
 First of all we need a xmpp server and id. We used gmail as xmpp server in this case. The xmpp id along with the password has to added in the conf/example.conf file of the software directory in the following format. 
 ```
