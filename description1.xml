@@ -1,0 +1,23 @@
+<?xml version="1.0" ?> 
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+	<specVersion>
+		<major>1</major> 
+		<minor>0</minor> 
+	</specVersion>
+	
+	<device>
+		<deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType> 
+		<friendlyName>HBOX Device</friendlyName> 
+		<manufacturer>TKK</manufacturer> 
+		<modelDescription>CyberUPnP HBOX Device</modelDescription> 
+		<modelName>hbox</modelName> 
+		<modelNumber>1.0</modelNumber> 
+		<serialNumber>1234</serialNumber> 
+		<UDN>uuid:hboxacc1@jabber.no</UDN> 
+		<presentationURL>http://www.cybergarage.org</presentationURL> 
+		
+		<deviceList>
+	
+		</deviceList>
+	</device>
+</root>

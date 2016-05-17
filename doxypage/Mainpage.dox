@@ -1,0 +1,71 @@
+/** \mainpage h-Box software
+
+<p><b>
+Overview |
+\ref UseCases |
+\ref ReadMe |
+\ref Architecture "Software Architecture"
+</b></p>
+
+Brief introduction to h-Box software will go here
+
+\section TOC Table of contents
+
+<p>This doxygen is structured as follows:</p>
+
+<ul> <li>The \ref UseCases page presents many use cases where this architecture can be applied...</li>
+
+<li>The \ref Architecture page presents overall architecture of the software and explain how it works. Thus, the new developers can improve the software to their needs.</li> </ul>
+
+For more information, see \ref UseCases, \ref ReadMe and \ref Architecture.
+
+\authors
+Vu Ba Tien Dung
+
+\licenses
+\gpl
+
+
+*/
+
+/** \page UseCases Use Cases
+
+<p><b>
+\ref index "Overview" |
+Use Cases |
+\ref ReadMe |
+\ref Architecture "Software Architecture"
+</b></p>
+
+\authors
+Vu Ba Tien Dung
+
+*/
+
+/** \page ReadMe How to use the software?
+
+<p><b>
+\ref index "Overview" |
+\ref UseCases |
+How to use the software |
+\ref Architecture "Software Architecture"
+</b></p>
+
+\authors
+Vu Ba Tien Dung
+
+*/
+
+/** \page Architecture Software Architecture
+
+<p><b>
+\ref index "Overview" |
+\ref UseCases |
+\ref ReadMe |
+Software Architecture
+</b></p>
+
+\authors
+Vu Ba Tien Dung
+
+*/

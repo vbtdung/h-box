@@ -1,0 +1,132 @@
+Installation Instructions
+*************************
+
+   Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without warranty of any kind.
+
+
+Dependencies
+=====================
+
+The Gloox library doesn't run properly in the i86_64 systems so it is adviced to install the whole setup on a i386/i686 architecture.
+
+Basic dependencies installation on Ubuntu:
+	apt-get install build-essential gcc g++ automake autoconf libtool libcppunit-dev unzip doxygen subversion
+
+
+
+Xerces:
+Download and Build instructions for Xerces on Ubuntu.
+	wget http://www.nic.funet.fi/pub/mirrors/apache.org/xerces/c/3/sources/xerces-c-3.1.1.zip
+	unzip xerces-c-3.1.1.zip
+	./configure  # From the Xerces directory
+	make
+	make install
+
+
+uHTTP:
+Download and Build uHTTP:
+	svn co https://cguhttp.svn.sourceforge.net/svnroot/cguhttp cguhttp 
+	./configure
+	make
+	make install
+
+CyberLinkcc:
+Bug in Cyberlinkcc:
+In the file include/Makefile.am
+delete lines : cybergarage/upnp/media/server/object/SearchCriteriaList.h \
+               cybergarage/io/FileInputStream.h \
+comment line : include/cybergarage/net/SocketImp.h:39
+
+In the file src/cybergarage/net/HostInterface.cpp
+add lines (the +) to function GetHostAddresses(): 
+ #if defined(HAVE_IFADDRS_H)
+
+ int CyberNet::GetHostAddresses(NetworkInterfaceList &netIfList)
+ {
+ 	netIfList.clear();
+ 	struct ifaddrs *ifaddr;
+ 	if (getifaddrs(&ifaddr) != 0)
+		return 0;
+
+	while (ifaddr != NULL) {
++   	if (std::string(ifaddr->ifa_name).find("teredo") != std::string::npos) {
++ 			ifaddr = ifaddr->ifa_next;
++ 			continue;
++ 		}
+		// Thanks for Tobias.Gansen (01/15/06)
+		if(ifaddr->ifa_addr->sa_family != AF_INET){
+			ifaddr = ifaddr->ifa_next;
+			continue;
+		}
+		
+Download and Build instructions for CyberLinkcc on Ubuntu.
+	svn co https://clinkcc.svn.sourceforge.net/svnroot/clinkcc clinkcc
+	./configure  # From the Cyberlinkcc trunk directory
+	make
+	make install
+
+
+
+Log4cpp:
+Download log4cpp-1.0 from http://sourceforge.net/projects/log4cpp/files/
+Build instructions for log4cpp on Ubuntu.
+	./configure  # From the Log4cpp directory
+	make
+	make install
+
+Patch: Patch for correct installation of log4cpp is available here:
+http://bugs.gentoo.org/attachment.cgi?id=149763
+
+
+
+Gloox:
+Download gloox-1.0 from http://camaya.net/gloox/download
+Please do not download any other version of gloox, as hbox currently supports only version 1.0
+Build instructions for gloox on Ubuntu.
+	apt-get install libssl-dev libidn11-dev gnutls-bin gnutls-dev libtool zlib1g-dev openssl
+	./configure --with-openssl=/usr
+	make
+	make install
+
+NoTE: 1)It is important to configure gloox with openssl or TLS support, so that XMPP client can perform TLS handshake with the Gmail server (mandatory for connection).
+2) In case of connection problem, refer to these discussions with gloox developers:
+http://camaya.net/glooxlist/dev/msg01899.html
+http://camaya.net/glooxlist/dev/msg01921.html
+
+
+
+Boost libraries:
+Install following few boost libraries if currently not installed:
+	apt-get install libboost-all-dev 
+
+
+
+HIP:
+See the default installation instruction at: http://infrahip.hiit.fi/index.php?index=download
+
+
+
+
+
+Hbox Installation
+==================
+
+To install the Hbox simply run the following commmands in order:
+	autoreconf --install
+	./configure
+	make 
+	make install
+
+To run the Hbox, use:
+./hbox -d [DEBUG_LEVEL] -c [CONFIGURATION FILE]
+where DEBUG_LEVEL is a number between 1 and 7 with 1 being the most critical error and 7 being a normal debug message. Use 7 to see all debug messages and CONFIGURATION FILE refers to the filename with hbox username and password
+	
+Sample contents of the conf/example.conf looks like the following:
+[userinfo]
+username= xxx@gmail.com/hbox
+password= xxx
+
+

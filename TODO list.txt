@@ -1,0 +1,8 @@
+Current developmental Issues
+● As of now, the XMPP client is able to connect to the server. The UpnP proxy is able to gather a list of devices from the local network. It then embeds all the device descriptions into a single large Hbox_device file and sends it over to the other hbox as XML stanza. The devices are announced in the remote hbox network. However, the remote hbox is unable to perform any 'Actions' on the remote upnp devices. This functionality has not yet been included in the code, and should be added. (to be added in MyControlPoint class)
+NOTE: read cyberlink documentattion for information on Action class.
+
+● The PubSub handler publishes all local devices as nodes. The right thing to do next is to publish its services and descriptions as “Items” on these device nodes. In this way, the remote hbox will be able subscribe to these devices, obtain their descriptions from the nodes and publish them to the local network. Part of this functionality, however, has been already included in the UpnP proxy. It too collects and sends over the device descriptions to the remote hbox. Thus it creates a redundancy. (The reason why this happened is that we started working on UpnP proxy before PubSub handler, and so included some of Pubsub Hander's functionlity into the upnp proxy. However, now that the PubSub feature is functioning fine, removing the excess functionality of the upnp proxy would be efficient for the working of hbox). 
+
+
+● Some bugs in the code which should be looked into are: repeated collection and embedding of the local devices; duplicate node creations by publishing the same device more than once which leads to StanzaError conflicts.
